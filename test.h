@@ -169,12 +169,12 @@ namespace _test
 
 
     template <typename T>
-    void print_group_status(long long testFailedCount, long long testCunt, bool testWasSkipped)
+    void print_group_status(long long testFailedCount, long long testCount, bool testWasSkipped)
     {
         if (testFailedCount)
-            std::cout << " -failed: " << testFailedCount << " of " << testCunt;
+            std::cout << " -failed: " << testFailedCount << " of " << testCount;
         else
-            std::cout << " -test count: " << testCunt;
+            std::cout << " -test count: " << testCount;
         if (testWasSkipped)
             std::cout << "*";
         std::cout << "\n";
@@ -183,7 +183,7 @@ namespace _test
 
 
     template <typename T>
-    void print_summary(long long totalFailedCount, long long totalCount, bool totalWasSkipped)
+    void print_summary(long long totalFailedCount, long long totalCount, bool someTestsSkipped)
     {
         std::cout << "==============================\n";
         if (totalFailedCount == 0)
@@ -191,8 +191,8 @@ namespace _test
         else
             std::cout << "Warning " << totalFailedCount << " tests failed!\n";
         std::cout << "Test count: " << totalCount;
-        if (totalWasSkipped)
-            std::cout << "*\n*Some tests may be skipped.";
+        if (someTestsSkipped)
+            std::cout << "*\n*Some tests have been skipped.";
         std::cout << std::endl;
     }
 
@@ -218,7 +218,7 @@ namespace _test
             std::cout << ":" << lastLine;
         }
         else
-            std::cout << "Exception beafore anny test!";
+            std::cout << "Exception before any test!";
         std::cout << std::endl;
     }
 
